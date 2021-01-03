@@ -1,7 +1,7 @@
 const FindSeat = (props) => {
     return (
         <section>
-            <button onClick={() => props.handleAddFn()}>Place Order</button>
+            <button onClick={(e) => props.handleAddFn(e)}>Place Order</button>
         </section>
     )
 }

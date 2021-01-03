@@ -24,7 +24,8 @@ class PlaceOrder extends Component {
         this.setState({drinkInput: e.target.value});
     }
 
-    handleAdd = () => {
+    handleAdd = (e) => {
+        e.preventDefault();
         const {nameInput, typeInput, drinkInput} = this.state;
         
         let newPatron = {
@@ -37,15 +38,14 @@ class PlaceOrder extends Component {
 
     render(){
         return (
-            <section>
+            <form>
                 <h1>Place an Order</h1>
-                <input placeholder='Name' onChange={(e) => this.handleName(e)}/>
-                <input placeholder='Type' onChange={(e) => this.handleType(e)}/>
-                <input placeholder='Drink Order' onChange={(e) => this.handleDrink(e)}/>
+                <input value={this.state.nameInput} placeholder='Name' onChange={(e) => this.handleName(e)}/>
+                <input value={this.state.typeInput} placeholder='Type' onChange={(e) => this.handleType(e)}/>
+                <input value={this.state.drinkInput} placeholder='Drink Order' onChange={(e) => this.handleDrink(e)}/>
                 <FindSeat 
-                    handleAddFn={this.handleAdd}
-                    addPatronFn={this.props.addPatronFn}/>
-            </section>
+                    handleAddFn={this.handleAdd}/>
+            </form>
         )
     }
 }

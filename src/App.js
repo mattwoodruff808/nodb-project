@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   addPatron = (newPatron) => {
-    axios.post('/api/patron', {newPatron})
+    axios.post('/api/patron', newPatron)
       .then(res => {
         this.setState({currentPatrons: res.data})
       })
@@ -50,7 +50,6 @@ class App extends Component {
         <Header />
         <Hoid />
         <PlaceOrder 
-          currentPatrons={currentPatrons}
           addPatronFn={this.addPatron}/>
         <SeatingArea 
           currentPatrons={currentPatrons}

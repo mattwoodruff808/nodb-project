@@ -23,6 +23,6 @@ module.exports = {
         
     },
     removePatron: (req, res) => {
-
+        
     }
 }
