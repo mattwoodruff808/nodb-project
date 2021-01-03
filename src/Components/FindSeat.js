@@ -1,7 +1,7 @@
-const FindSeat = () => {
+const FindSeat = (props) => {
     return (
         <section>
-
+            <button>Place Order</button>
         </section>
     )
 }

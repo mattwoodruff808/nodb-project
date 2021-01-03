@@ -1,7 +1,7 @@
 const Header = () => {
     return (
         <section>
-
+            ShadesBar Header
         </section>
     )
 }
