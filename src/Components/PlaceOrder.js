@@ -1,6 +1,7 @@
 import {Component} from 'react';
 import FindSeat from './FindSeat';
 
+
 class PlaceOrder extends Component {
     constructor(){
         super();
@@ -11,19 +12,39 @@ class PlaceOrder extends Component {
         }
     }
 
-    handleInputs = (e) => {
+    handleName = (e) => {
+        this.setState({nameInput: e.target.value});
+    }
+
+    handleType = (e) => {
+        this.setState({typeInput: e.target.value});
+    }
+
+    handleDrink = (e) => {
+        this.setState({drinkInput: e.target.value});
+    }
+
+    handleAdd = () => {
+        const {nameInput, typeInput, drinkInput} = this.state;
         
+        let newPatron = {
+            name: nameInput,
+            type: typeInput,
+            currentDrink: drinkInput
+        }
+        this.props.addPatronFn(newPatron);
     }
 
     render(){
         return (
             <section>
                 <h1>Place an Order</h1>
-                <input placeholder='Name'/>
-                <input placeholder='Type'/>
-                <input placeholder='Drink Order'/>
+                <input placeholder='Name' onChange={(e) => this.handleName(e)}/>
+                <input placeholder='Type' onChange={(e) => this.handleType(e)}/>
+                <input placeholder='Drink Order' onChange={(e) => this.handleDrink(e)}/>
                 <FindSeat 
-                    findSeatFn={this.props.findSeatFn}/>
+                    handleAddFn={this.handleAdd}
+                    addPatronFn={this.props.addPatronFn}/>
             </section>
         )
     }

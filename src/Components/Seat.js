@@ -1,5 +1,6 @@
 import {Component} from 'react';
 
+
 class Seat extends Component {
     constructor(){
         super();
@@ -10,9 +11,11 @@ class Seat extends Component {
     }
 
     render(){
+        const {individualPatron} = this.props.individualPatron;
+
         return (
             <section>
-                Seat!
+                {individualPatron}
             </section>
         )
     }

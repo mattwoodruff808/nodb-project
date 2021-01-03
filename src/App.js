@@ -3,6 +3,8 @@ import Header from './Components/Header';
 import Hoid from './Components/Hoid';
 import PlaceOrder from './Components/PlaceOrder';
 import SeatingArea from './Components/SeatingArea';
+import axios from 'axios';
+
 
 class App extends Component {
   constructor(){
@@ -13,15 +15,23 @@ class App extends Component {
   }
 
   componentDidMount(){
-
+    this.getCurrentPatrons();
   }
 
   getCurrentPatrons = () => {
-
+    axios.get('/api/patrons')
+      .then(res => {
+        this.setState({currentPatrons: res.data})
+      })
+      .catch(err => console.log(err));
   }
 
-  findSeat = () => {
-
+  addPatron = (newPatron) => {
+    axios.post('/api/patron', {newPatron})
+      .then(res => {
+        this.setState({currentPatrons: res.data})
+      })
+      .catch(err => console.log(err));
   }
 
   switchDrink = () => {
@@ -41,7 +51,7 @@ class App extends Component {
         <Hoid />
         <PlaceOrder 
           currentPatrons={currentPatrons}
-          findSeatFn={this.findSeat}/>
+          addPatronFn={this.addPatron}/>
         <SeatingArea 
           currentPatrons={currentPatrons}
           switchDrinkFn={this.switchDrink}
