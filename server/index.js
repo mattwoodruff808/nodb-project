@@ -8,6 +8,7 @@ app.use(express.json());
 app.get('/api/patrons', ctrl.getCurrentPatrons);
 app.post('/api/patron', ctrl.addPatron);
 app.put('/api/patron/:id', ctrl.switchDrink);
+app.delete('/api/patron/:id', ctrl.removePatron);
 
 
 const port = 3434;

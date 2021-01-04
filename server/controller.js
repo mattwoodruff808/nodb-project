@@ -24,10 +24,16 @@ module.exports = {
         const {newDrink} = req.body;
 
         const patron = currentPatrons.find(el => el.id === +id);
-        patron.currentDrink = newDrink;
+        patron.currentDrink = newDrink || patron.currentDrink;
+
         res.status(200).send(currentPatrons);
     },
     removePatron: (req, res) => {
+        const {id} = req.params;
+
+        const patronIndex = currentPatrons.findIndex(el => el.id === +id);
+        currentPatrons.splice(patronIndex, 1);
         
+        res.status(200).send(currentPatrons);
     }
 }

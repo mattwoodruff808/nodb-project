@@ -22,18 +22,33 @@ class Seat extends Component {
     handleSwitchDrink = (id) => {
         this.props.switchDrinkFn(id, this.state.editDrinkInp);
         this.handleToggleView();
+        this.setState({editDrinkInp: ''})
     }
 
     render(){
-        const {patron, switchDrinkFn, removePatronFn} = this.props;
+        const {editDrinkInp, editView} = this.state;
+        const {patron, removePatronFn} = this.props;
 
         return (
             <section>
                 <p>Name: {patron.name}</p>
                 <p>Ability: {patron.type}</p>
                 <p>Drink: {patron.currentDrink}</p>
-                <button>Switch Drink</button>
-                <button>Bounce Patron</button>
+                {editView 
+                ? (
+                    <section>
+                        <input value={editDrinkInp} 
+                               placeholder='Enter New Drink' 
+                               onChange={(e) => this.handleDrinkInput(e)}/>
+                        <button onClick={() => this.handleSwitchDrink(patron.id)}>Place New Order</button>
+                    </section>
+                )
+                : (
+                    <section>
+                        <button onClick={() => this.handleToggleView()}>Switch Drink</button>
+                    </section>
+                )}
+                <button onClick={() => removePatronFn(patron.id)}>Bounce Patron</button>
             </section>
         )
     }
