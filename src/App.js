@@ -34,8 +34,12 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  switchDrink = () => {
-
+  switchDrink = (id, newDrink) => {
+    axios.put(`/api/patron/${id}`, newDrink)
+      .then(res => {
+        this.setState({currentPatrons: res.data})
+      })
+      .catch(err => console.log(err));
   }
 
   removePatron = () => {

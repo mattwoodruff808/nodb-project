@@ -34,15 +34,22 @@ class PlaceOrder extends Component {
             currentDrink: drinkInput
         }
         this.props.addPatronFn(newPatron);
+        this.setState({
+            nameInput: '',
+            typeInput: '',
+            drinkInput: ''
+        })
     }
 
     render(){
+        const {nameInput, typeInput, drinkInput} = this.state;
+
         return (
             <form>
                 <h1>Place an Order</h1>
-                <input value={this.state.nameInput} placeholder='Name' onChange={(e) => this.handleName(e)}/>
-                <input value={this.state.typeInput} placeholder='Type' onChange={(e) => this.handleType(e)}/>
-                <input value={this.state.drinkInput} placeholder='Drink Order' onChange={(e) => this.handleDrink(e)}/>
+                <input value={nameInput} placeholder='Name' onChange={(e) => this.handleName(e)}/>
+                <input value={typeInput} placeholder='Ability' onChange={(e) => this.handleType(e)}/>
+                <input value={drinkInput} placeholder='Drink Order' onChange={(e) => this.handleDrink(e)}/>
                 <FindSeat 
                     handleAddFn={this.handleAdd}/>
             </form>
