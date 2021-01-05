@@ -12,9 +12,11 @@ const SeatingArea = (props) => {
     ))
 
     return (
-        <section>
-            <h1>Seating Area</h1>
-            {mappedPatrons}
+        <section className="Seating-area">
+            <h2>Seating Area</h2>
+            <div className="Box">
+                {mappedPatrons}
+            </div>
         </section>
     )
 }

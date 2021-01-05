@@ -46,12 +46,14 @@ class PlaceOrder extends Component {
 
         return (
             <form>
-                <h1>Place an Order</h1>
-                <input value={nameInput} placeholder='Name' onChange={(e) => this.handleName(e)}/>
-                <input value={typeInput} placeholder='Ability' onChange={(e) => this.handleType(e)}/>
-                <input value={drinkInput} placeholder='Drink Order' onChange={(e) => this.handleDrink(e)}/>
-                <FindSeat 
-                    handleAddFn={this.handleAdd}/>
+                <h2>Place an Order</h2>
+                <div className="Box">
+                    <input value={nameInput} placeholder='Name' onChange={(e) => this.handleName(e)}/>
+                    <input value={typeInput} placeholder='Ability' onChange={(e) => this.handleType(e)}/>
+                    <input value={drinkInput} placeholder='Drink Order' onChange={(e) => this.handleDrink(e)}/>
+                    <FindSeat 
+                        handleAddFn={this.handleAdd}/>
+                </div>
             </form>
         )
     }

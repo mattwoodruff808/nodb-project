@@ -32,7 +32,7 @@ class Hoid extends Component {
         const {currentStory} = this.props;
 
         return (
-            <section>
+            <section className="Hoid-info">
                 <h2>Bartender</h2>
                 <img src='https://i.pinimg.com/originals/80/ef/91/80ef9128f7171d1172de2dca678bdcc9.png' alt='Hoid playing his flute'/>
                 <p>Artist: Tara Spruit - (taratjah)</p>
