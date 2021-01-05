@@ -1,5 +1,6 @@
-const currentPatrons = [{id: 1, name: 'Szeth', type: 'Skybreaker', currentDrink: 'Tears of his Enemies'}, {id: 2, name: 'Lift', type: 'Edgedancer', currentDrink: 'Juice'}];
+const currentPatrons = [{id: 1, name: 'Szeth', type: 'Skybreaker', currentDrink: 'Red Wine'}, {id: 2, name: 'Lift', type: 'Edgedancer', currentDrink: 'Juice'}];
 let id = 3;
+let currentStory = 'The Dog and the Dragon';
 
 module.exports = {
     getCurrentPatrons: (req, res) => {
@@ -35,5 +36,15 @@ module.exports = {
         currentPatrons.splice(patronIndex, 1);
         
         res.status(200).send(currentPatrons);
+    },
+    getCurrentStory: (req, res) => {
+        res.status(200).send(currentStory);
+    },
+    changeStory: (req, res) => {
+        const {newStory} = req.body;
+
+        currentStory = newStory || currentStory;
+
+        res.status(200).send(currentStory);
     }
 }

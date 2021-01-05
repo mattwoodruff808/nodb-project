@@ -10,14 +10,17 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      currentPatrons: []
+      currentPatrons: [],
+      currentStory: ''
     }
   }
 
   componentDidMount(){
     this.getCurrentPatrons();
+    this.getCurrentStory();
   }
 
+  //Place Order and Seating Area Functions
   getCurrentPatrons = () => {
     axios.get('/api/patrons')
       .then(res => {
@@ -50,13 +53,32 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  //Hoid Side-Bar Functions
+  getCurrentStory = () => {
+    axios.get('/api/hoid-story')
+      .then(res => {
+        this.setState({currentStory: res.data})
+      })
+      .catch(err => console.log(err));
+  }
+
+  changeStory = (newStory) => {
+    axios.put('/api/hoid-story', {newStory: newStory})
+      .then(res => {
+        this.setState({currentStory: res.data})
+      })
+      .catch(err => console.log(err));
+  }
+
   render(){
-    const {currentPatrons} = this.state;
+    const {currentPatrons, currentStory} = this.state;
 
     return (
       <section>
         <Header />
-        <Hoid />
+        <Hoid 
+          currentStory={currentStory}
+          changeStoryFn={this.changeStory}/>
         <PlaceOrder 
           addPatronFn={this.addPatron}/>
         <SeatingArea 

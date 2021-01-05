@@ -1,7 +1,7 @@
 const Header = () => {
     return (
         <section>
-            ShadesBar Header
+            <h1>ShadesBar</h1>
         </section>
     )
 }
