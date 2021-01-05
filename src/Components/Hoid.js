@@ -48,7 +48,7 @@ class Hoid extends Component {
                     </section>
                 )
                 : (
-                    <section className='click'> 
+                    <section className="Click"> 
                         <p onClick={() => this.handleToggleView()}>Story: {currentStory}</p>
                     </section>
                 )}

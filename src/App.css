@@ -1,7 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
+
 .App {
-  text-align: center;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
-.click {
+.Content {
+  display: flex;
+  flex-direction: row;
+}
+
+.Header {
+  height: 120.4px;
+  width: 100%;
+  box-sizing: border-box;
+  background-image: url('https://i.pinimg.com/originals/2a/fb/21/2afb2168fede5a42d6eb567acaae117c.jpg');
+  background-position: center;
+  background-size: cover;
+  background-position-y: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 68.8px;
+  font-family: 'Yeon Sung', cursive;
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+
+.Click {
   cursor: pointer;
 }

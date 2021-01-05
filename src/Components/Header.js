@@ -1,6 +1,8 @@
+import '../App.css';
+
 const Header = () => {
     return (
-        <section>
+        <section className="Header">
             <h1>ShadesBar</h1>
         </section>
     )

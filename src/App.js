@@ -4,6 +4,7 @@ import Hoid from './Components/Hoid';
 import PlaceOrder from './Components/PlaceOrder';
 import SeatingArea from './Components/SeatingArea';
 import axios from 'axios';
+import './App.css';
 
 
 class App extends Component {
@@ -74,17 +75,23 @@ class App extends Component {
     const {currentPatrons, currentStory} = this.state;
 
     return (
-      <section>
+      <section className="App">
         <Header />
-        <Hoid 
-          currentStory={currentStory}
-          changeStoryFn={this.changeStory}/>
-        <PlaceOrder 
-          addPatronFn={this.addPatron}/>
-        <SeatingArea 
-          currentPatrons={currentPatrons}
-          switchDrinkFn={this.switchDrink}
-          removePatronFn={this.removePatron}/>
+        <section className="Content">
+          <aside>
+            <Hoid 
+              currentStory={currentStory}
+              changeStoryFn={this.changeStory}/>
+          </aside>
+          <main>
+            <PlaceOrder 
+              addPatronFn={this.addPatron}/>
+            <SeatingArea 
+              currentPatrons={currentPatrons}
+              switchDrinkFn={this.switchDrink}
+              removePatronFn={this.removePatron}/>
+          </main>
+        </section>
       </section>
     )
   }
