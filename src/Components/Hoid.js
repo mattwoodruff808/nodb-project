@@ -43,8 +43,9 @@ class Hoid extends Component {
                     ? (
                         <section>
                             <input value={editStoryInp} 
-                                placeholder='Enter New Story' 
-                                onChange={(e) => this.handleStoryInp(e)}/>
+                                   placeholder='Enter New Story' 
+                                   onChange={(e) => this.handleStoryInp(e)}
+                                   className="Hoid-input"/>
                             <button onClick={() => this.handleChangeStory()}>Begin Story</button>
                         </section>
                     )

@@ -30,25 +30,29 @@ class Seat extends Component {
         const {patron, removePatronFn} = this.props;
 
         return (
-            <section>
-                <p>Name: {patron.name}</p>
-                <p>Ability: {patron.type}</p>
-                <p>Drink: {patron.currentDrink}</p>
-                {editView 
-                ? (
-                    <section>
-                        <input value={editDrinkInp} 
-                               placeholder='Enter New Drink' 
-                               onChange={(e) => this.handleDrinkInput(e)}/>
-                        <button onClick={() => this.handleSwitchDrink(patron.id)}>Place New Order</button>
-                    </section>
-                )
-                : (
-                    <section>
-                        <button onClick={() => this.handleToggleView()}>Switch Drink</button>
-                    </section>
-                )}
-                <button onClick={() => removePatronFn(patron.id)}>Bounce Patron</button>
+            <section className="Patron-flex">
+                <section className="Text-style">
+                    <p>Name: {patron.name}</p>
+                    <p>Ability: {patron.type}</p>
+                    <p>Drink: {patron.currentDrink}</p>
+                </section>
+                <section>
+                    {editView 
+                    ? (
+                        <section>
+                            <input value={editDrinkInp} 
+                                placeholder='Enter New Drink' 
+                                onChange={(e) => this.handleDrinkInput(e)}/>
+                            <button onClick={() => this.handleSwitchDrink(patron.id)}>Place New Order</button>
+                        </section>
+                    )
+                    : (
+                        <section>
+                            <button onClick={() => this.handleToggleView()}>Switch Drink</button>
+                        </section>
+                    )}
+                    <button onClick={() => removePatronFn(patron.id)}>Bounce Patron</button>
+                </section>
             </section>
         )
     }
