@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 
 .App {
-  font-family: sans-serif;
+  font-family: 'Zilla Slab', serif;
+  font-size: 19px;
   display: flex;
   flex-direction: column;
 }
@@ -25,7 +27,7 @@
   justify-content: center;
   align-items: center;
   font-size: 68.8px;
-  font-family: 'Yeon Sung', cursive;
+  font-family: 'Berkshire Swash', cursive;
   color: white;
   -webkit-text-stroke: 1px black;
   position: relative;
@@ -34,7 +36,7 @@
 
 .Artist {
   font-size: 10px;
-  font-family: sans-serif;
+  font-family: 'Zilla Slab', serif;
   -webkit-text-stroke: 0px white;
   position: absolute;
   right: 0px;
@@ -74,7 +76,7 @@ aside {
 .Artist-2 {
   position: absolute;
   font-size: 10px;
-  right: 89px;
+  right: 88px;
 }
 
 main {
@@ -135,7 +137,7 @@ main {
 }
 
 h2 {
-  font-family: 'Yeon Sung', cursive;
+  font-family: 'Berkshire Swash', cursive;
   font-size: 40px;
 }
 
