@@ -16,7 +16,7 @@ class Hoid extends Component {
 
     handleToggleView = () => {
         const {editView} = this.state;
-        this.setState({editView: !editView})
+        this.setState({editView: !editView});
     }
 
     handleChangeStory = () => {
@@ -27,12 +27,18 @@ class Hoid extends Component {
         this.setState({editStoryInp: ''});
     }
 
+    handleKeypress = (e) => {
+        if (e.keyCode === 13){
+            this.handleChangeStory();
+        }
+    }
+
     render(){
         const {editStoryInp, editView} = this.state;
         const {currentStory} = this.props;
 
         return (
-            <section className="Hoid-sidebar">
+            <form className="Hoid-sidebar">
                 <h2>Bartender</h2>
                 <img className="Hoid-margin" src='https://i.pinimg.com/originals/80/ef/91/80ef9128f7171d1172de2dca678bdcc9.png' alt='Hoid playing his flute'/>
                 <p className="Artist-2">Artist: Tara Spruit - (taratjah)</p>
@@ -45,6 +51,7 @@ class Hoid extends Component {
                             <input value={editStoryInp} 
                                    placeholder='Enter New Story' 
                                    onChange={(e) => this.handleStoryInp(e)}
+                                   onKeyPress={(e) => this.handleKeypress(e)}
                                    className="Hoid-input"/>
                             <button onClick={() => this.handleChangeStory()}>Begin Story</button>
                         </section>
@@ -55,7 +62,7 @@ class Hoid extends Component {
                         </section>
                     )}
                 </section>
-            </section>
+            </form>
         )
     }
 }

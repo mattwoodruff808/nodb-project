@@ -15,9 +15,7 @@ const SeatingArea = (props) => {
         <section className="Seating-area">
             <h2>Seating Area</h2>
             <section className="Box">
-                {/* <section className="Patron-flex"> */}
-                    {mappedPatrons}
-                {/* </section> */}
+                {mappedPatrons}
             </section>
         </section>
     )

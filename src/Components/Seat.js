@@ -25,12 +25,18 @@ class Seat extends Component {
         this.setState({editDrinkInp: ''})
     }
 
+    handleKeypress = (e) => {
+        if (e.keyCode === 13){
+            this.handleSwitchDrink();
+        }
+    }
+
     render(){
         const {editDrinkInp, editView} = this.state;
         const {patron, removePatronFn} = this.props;
 
         return (
-            <section className="Patron-flex">
+            <form className="Patron-flex">
                 <section className="Text-style">
                     <p>Name: {patron.name}</p>
                     <p>Ability: {patron.type}</p>
@@ -39,11 +45,12 @@ class Seat extends Component {
                 <section>
                     {editView 
                     ? (
-                        <section>
+                        <section className="Edit-drink">
                             <input value={editDrinkInp} 
-                                placeholder='Enter New Drink' 
-                                onChange={(e) => this.handleDrinkInput(e)}/>
-                            <button onClick={() => this.handleSwitchDrink(patron.id)}>Place New Order</button>
+                                   placeholder='Enter New Drink' 
+                                   onChange={(e) => this.handleDrinkInput(e)}
+                                   onKeyPress={(e) => this.handleKeypress(e)}/>
+                            <button onClick={() => this.handleSwitchDrink(patron.id)}>Order</button>
                         </section>
                     )
                     : (
@@ -53,7 +60,7 @@ class Seat extends Component {
                     )}
                     <button onClick={() => removePatronFn(patron.id)}>Bounce Patron</button>
                 </section>
-            </section>
+            </form>
         )
     }
 }
